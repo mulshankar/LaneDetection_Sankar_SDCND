@@ -30,18 +30,18 @@ The pipeline is categorized into 3 stages:
 10) X locations can be back calculated via the simple transformation x=(y-b)/m
 11) Using the cv2.line function, the extrapolated line is drawn between x_bottom,y_bottom to x_top,y_top for both the lanes
 ## PART 3: Make it work on a video (series of images)
-12) In real world driving scenarios, lane changes are gradual implying slopes and intercepts should not change drastically from frame to frame
-13) Five variables were declared as globals to track history between one frame to other
+In real world driving scenarios, lane changes are gradual implying slopes and intercepts should not change drastically from frame to frame
+12) Five variables were declared as globals to track history between one frame to other
 	- FrameNum (this is a simple counter to know if this is the first frame)
 	- Previous right lane slope average
 	- Previous left lane slope average
 	- Previous right lane intercept average
 	- Previous left lane intercept average
-14) If the slope of the line segment in the new frame is above a user defined tolerance (0.1 in this case), the line segment is ignored
-15) New slope and intercept for the generalized lane is computer and averaged with the previous frame's slope and intercept for both lanes
+13) If the slope of the line segment in the new frame is above a user defined tolerance (0.1 in this case), the line segment is ignored
+14) New slope and intercept for the generalized lane is computed and averaged with the previous frame's slope and intercept
 
 ### 2. Potential shortcomings with your current pipeline
-While the above pipeline works great for straight lanes, it will fail for curved roads. It does not work on the challenge video.
+While the above pipeline works for straight lanes, it will fail for curved roads. It does not work on the challenge video.
 
 ### 3. Suggest possible improvements to your pipeline
 Use a higher order polynomial fit for tackling curved roads. 
